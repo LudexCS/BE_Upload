@@ -10,4 +10,9 @@ export class ResourceDownloadUrl {
 
   @Column({ name: 'key', type: 'varchar', length: 255, nullable: false })
   key: string;
+
+  constructor(resourceId: number, key: string) {
+    this.resourceId = resourceId;
+    this.key = key;
+  }
 }

@@ -14,9 +14,9 @@ export class GameDownloadUrl {
   @Column({ name: 'game_id', type: 'int', nullable: false })
   gameId: number;
 
-  constructor(gameId: number, url: string, version: string) {
+  constructor(gameId: number, key: string, version: string) {
     this.gameId = gameId;
-    this.key = url;
+    this.key = key;
     this.version = version;
   }
 }
