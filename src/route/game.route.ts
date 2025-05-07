@@ -11,7 +11,7 @@ router.post("/upload/:gameId", async (req, res) => {
             return;
         }
 
-        const version = typeof req.query.version === "string" ? req.query.version : "v1.0";
+        const version = typeof req.query.version === "string" ? req.query.version : "v1.0.0";
 
         const id = await uploadGameControl(req, gameId, version);
         res.status(201).json({ id });
