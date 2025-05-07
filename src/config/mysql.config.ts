@@ -1,5 +1,7 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
+import {GameDownloadUrl} from "../entity/gameDownloadUrl.entity";
+import {ResourceDownloadUrl} from "../entity/resourceDownloadUrl.entity";
 
 const HOST = process.env.DB_HOST || 'localhost';
 const PORT = Number(process.env.DB_PORT) || 3306;
@@ -16,7 +18,7 @@ const AppDataSource = new DataSource({
     database: DB_NAME,
     synchronize: false,
     logging: true,
-    entities: [  ],
+    entities: [ GameDownloadUrl, ResourceDownloadUrl ],
     migrations: [],
     subscribers: [],
 });

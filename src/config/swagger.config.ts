@@ -14,7 +14,7 @@ const options = {
       },
       contact: {
         name: "Upload Service Team",
-        url: "https://github.com/LudexCS/BE_UploadService.git",
+        url: "https://github.com/LudexCS/BE_Upload.git",
       }
     },
     servers: [
