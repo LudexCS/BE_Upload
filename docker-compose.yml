@@ -1,0 +1,6 @@
+services:
+  upload:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: gomdadi/upload:latest
