@@ -12,3 +12,12 @@ export const saveResourceDownloadUrl = async (resourceDownloadUrl: ResourceDownl
         throw new Error('Failed to save resource download url to database');
     }
 };
+
+export const getResourceDownloadUrl = async (resourceId: number) => {
+    try {
+        return (await resourceDownloadUrlRepo.findOneOrFail({ where: { resourceId } })).key;
+    } catch (error) {
+        console.error('Failed to get resource download url:', error);
+        throw new Error('Failed to get resource download url from database');
+    }
+}
