@@ -1,7 +1,13 @@
 import {ResourceDownloadUrl} from "../entity/resourceDownloadUrl.entity";
-import {saveResourceDownloadUrl} from "../repository/resourceDownloadUrl.repository";
+import {getResourceDownloadUrl, saveResourceDownloadUrl} from "../repository/resourceDownloadUrl.repository";
+import {getPresignedUrl} from "./s3.service";
 
 export const registerResourceDownloadUrl = async (key: string, resourceId: number) => {
     const entity = new ResourceDownloadUrl(resourceId, key);
     return await saveResourceDownloadUrl(entity);
+}
+
+export const findResourceDownloadUrl = async (resourceId: number) => {
+    const key = await getResourceDownloadUrl(resourceId);
+    return await getPresignedUrl(key);
 }
