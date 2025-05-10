@@ -9,5 +9,8 @@ export const registerResourceDownloadUrl = async (key: string, resourceId: numbe
 
 export const findResourceDownloadUrl = async (resourceId: number) => {
     const key = await getResourceDownloadUrl(resourceId);
+    if (!key) {
+        throw new Error(`Resource file not found for resourceId=${resourceId}`);
+    }
     return await getPresignedUrl(key);
 }

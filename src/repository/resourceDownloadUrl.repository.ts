@@ -15,7 +15,8 @@ export const saveResourceDownloadUrl = async (resourceDownloadUrl: ResourceDownl
 
 export const getResourceDownloadUrl = async (resourceId: number) => {
     try {
-        return (await resourceDownloadUrlRepo.findOneOrFail({ where: { resourceId } })).key;
+        const found = await resourceDownloadUrlRepo.findOne({ where: { resourceId } });
+        return found?.key ?? null;
     } catch (error) {
         console.error('Failed to get resource download url:', error);
         throw new Error('Failed to get resource download url from database');

@@ -21,13 +21,13 @@ export const getGameDownloadUrl = async (gameId: number, version: string) => {
             const latest = all
                 .filter(entry => semver.valid(entry.version))
                 .sort((a, b) => semver.rcompare(a.version, b.version))[0];
-            if (!latest) throw new Error('No valid semver version found');
-            return latest.key;
+            return latest?.key ?? null;
         } else {
-            return (await gameDownloadUrlRepo.findOneOrFail({
+            const found = await gameDownloadUrlRepo.findOne({
                 where: { gameId, version },
                 select: ['key']
-            })).key;
+            });
+            return found?.key ?? null;
         }
     } catch (error) {
         console.error('Failed to get game download url:', error);
