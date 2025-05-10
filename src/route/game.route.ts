@@ -56,7 +56,7 @@ router.post("/upload/:gameId", async (req, res) => {
  *                 url:
  *                   type: string
  *       400:
- *         description: 잘못된 요청 (예: 잘못된 gameId)
+ *         description: 잘못된 요청
  *       500:
  *         description: 서버 오류
  */
