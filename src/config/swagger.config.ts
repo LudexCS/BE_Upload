@@ -19,7 +19,7 @@ const options = {
     },
     servers: [
       {
-        url: 'http://3.37.46.45:30355',
+        url: 'http://16.184.9.194:30355',
         description: 'Upload 서비스 API 서버'
       }
     ],
