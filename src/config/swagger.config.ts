@@ -19,7 +19,7 @@ const options = {
     },
     servers: [
       {
-        url: 'http://api.uosludex.com/upload',
+        url: 'https://api.uosludex.com/upload',
         description: 'Upload 서비스 API 서버'
       }
     ],
