@@ -9,7 +9,7 @@ import resourceRoute from "./route/resource.route";
 const app : Express = express();
 app.use(express.json());
 app.use(cors({
-    origin: process.env.CLIENT_ORIGIN,
+    origin: ['http://localhost:3000', 'http://uosludex.com', 'https://uosludex.com'],
     credentials: true
 }))
 
