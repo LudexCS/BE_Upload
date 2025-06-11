@@ -9,16 +9,16 @@ import resourceRoute from "./route/resource.route";
 const app : Express = express();
 app.use(express.json());
 app.use(cors({
-    origin: process.env.CLIENT_ORIGIN,
+    origin: ['http://localhost:3000', 'http://uosludex.com', 'https://uosludex.com'],
     credentials: true
 }))
 
 // Swagger UI 설정
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, swaggerUiOptions));
+app.use('/upload/api-docs', swaggerUi.serve, swaggerUi.setup(specs, swaggerUiOptions));
 
 // jwt middleware
-app.use('/api/protected', jwtGuard);
-app.use('/api/protected/game', gameRoute);
-app.use('/api/protected/resource', resourceRoute);
+app.use('/upload/api/protected', jwtGuard);
+app.use('/upload/api/protected/game', gameRoute);
+app.use('/upload/api/protected/resource', resourceRoute);
 
 export default app;
